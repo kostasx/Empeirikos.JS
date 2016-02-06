@@ -20,6 +20,7 @@
 
 Το ποίημα αποτελείται από λέξεις που δημιουργήθηκαν από την  βιβλιοθήκη [Foswig](https://github.com/mrsharpoblunto/foswig.js/) (γραμμένη σε JavaScript) η οποία χρησιμοποιεί έναν αλγόριθμο βασισμένο στην [Αλυσίδα Μάρκοφ](https://el.wikipedia.org/wiki/%CE%91%CE%BB%CF%85%CF%83%CE%AF%CE%B4%CE%B1_%CE%9C%CE%B1%CF%81%CE%BA%CF%8C%CF%86) με σκοπό να δημιουργήσει ψευδο-τυχαίες λέξεις. Το πρόγραμμα χρησιμοποιεί το [ελληνικό λεξικό του OpenOffice](http://extensions.openoffice.org/en/project/hellenic-greek-dictionary-spell-check-and-hyphenation) το οποίο περιέχει 546.490 λέξεις.
 
+[Δημιουργήστε λέξεις εδώ!](http://kostasx.github.io/Empeirikos.js/)
 
 Μερικές λέξεις δημιουργημένες από τον αλγόριθμο:
 (Sample Words generated from the script - in Greek)
