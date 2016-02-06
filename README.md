@@ -1,9 +1,17 @@
 # Empeirikos.js
 (A Fork of Foswig.js)
 
-Sample Words generated from the script:
+Μερικές λέξεις δημιουργημένες από τον αλγόριθμο:
+(Sample Words generated from the script - in Greek)
 
 ```
+κυπαιδονται
+γλήγωτέρησα
+στατονώνεστε
+ναυπηρμές
+ακρώθηκα
+εμφυσικη
+γνωρευαστικά
 σαρίσατε
 βραχισμένης
 απάκωσες
