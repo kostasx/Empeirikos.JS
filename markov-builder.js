@@ -1,13 +1,15 @@
 importScripts("foswig.min.js");
 
 var chain = null;
+var dict = "javascript-dictionary.js";
+		dict = "dictionary-gr.js";
 
 self.addEventListener('message', function(e) {
 	if (e.data.messageType === "load") {
 		//get the list of dictionary words
 		var req = new XMLHttpRequest();  
-		req.open('GET', "javascript-dictionary.js", false); 
-		req.send( null ); 
+				req.open('GET', dict, false); 
+				req.send( null ); 
 		var data = JSON.parse(req.responseText);
 			
 		chain = new foswig.MarkovChain(3);

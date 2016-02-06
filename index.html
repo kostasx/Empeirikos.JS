@@ -4,59 +4,140 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Empeirikos.JS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="bootstrap-responsive.min.css" rel="stylesheet" />
-	
 	<style type="text/css">
 		body {
 			text-align:center;
+			background-color: #000000;
 		}
 		
 		#input {
-			margin-top:50px;
-			margin-bottom:75px;
-			display:none;
+			position            : relative;
+			margin-top          :50px;
+			margin-bottom       :75px;
+			width               : 60%;
+			margin              : 0 auto;
+			height              : 500px;
+			background-image    : url('./img/empeirikos.jpg');
+			background-repeat   : no-repeat;
+			background-position : top right;
 		}
-		
+		#generate {
+			display  : none;
+			position : absolute;
+			top      : 40%;
+			left     : 25%;
+			padding  : 20px;
+  	}
 		#loading {
-			margin-top:50px;
-			margin-bottom:75px;
+			margin-top    :50px;
+			margin-bottom :75px;
+			color         : white;
+			top: 100px;
+	    left: 100px;
+	    position: absolute;
 		}
-		
+		#result {
+			position : absolute;
+			top      : 50%;
+			left     : 25%;
+			color    : white;
+		}
 		.separator {
 			margin: 25px auto;
 			background: #ccc;
 			height: 1px;
 			width: 15%;
 		}
-		
-		.copyright
-		{
-			font-size:12px;
-			color:#bbb;
+		.copyright {
+			color: white;
+		}
+		.copyright a {
+			color: orange;
+			text-decoration: none;
+		}
+		/* LOADER */
+		/**
+		 * (C)Leanest CSS spinner ever by Lea Verou
+		 * http://lea.verou.me/2013/11/cleanest-css-spinner-ever/
+		 */
+
+		@keyframes spin {
+			to { transform: rotate(1turn); }
+		}
+
+		.progress {
+			position: absolute;
+			top: 300px;
+	    left: 100px;
+			display: inline-block;
+			width: 5em;
+			height: 5em;
+			margin: 0 .5em;
+			font-size: 12px;
+			text-indent: 999em;
+			overflow: hidden;
+			animation: spin 1s infinite steps(8);
+		}
+		.progress:before,
+		.progress:after,
+		.progress > div:before,
+		.progress > div:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 2.25em; /* (container width - part width)/2  */
+			width: .5em;
+			height: 1.5em;
+			border-radius: .2em;
+			background: #eee;
+			box-shadow: 0 3.5em #eee; /* container height - part height */
+			transform-origin: 50% 2.5em; /* container height / 2 */
+		}
+
+		.progress:before {
+			background: #555;
+		}
+
+		.progress:after {
+			transform: rotate(-45deg);
+			background: #777;
+		}
+
+		.progress > div:before {
+			transform: rotate(-90deg);
+			background: #999;
+		}
+		.small.progress {
+			font-size: 6px;
+			position: absolute;
+	    top: 39%;
+	    left: 40%;
+	    display: none;
+		}
+		.progress > div:after {
+			transform: rotate(-135deg);
+			background: #bbb;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
 	
-		<div  class="row">
-			<div class="span12">
-				<a href="http://en.wikipedia.org/wiki/Markov_chain">Markov Chain</a>
-				<a href="https://github.com/mrsharpoblunto/foswig.js/">Foswig</a>
-			</div>
-		</div>
-		
-		<div id="loading" class="row">
-			 <div class="span12">
-				<img src="ajax-loader.gif" alt="loading" />
-			</div>
-		</div>
-		
 		<div id="input" class="row">
+
+			<div id="loading" class="row">
+				<p>Το λεξικό φορτώνει. Παρακαλώ περιμένετε...
+				<br/>Το λεξικό περιέχει πάνω από 500.000 ελληνικές λέξεις.
+				<br/>Μην κάνετε refresh στη σελίδα ενόσω φορτώνει.
+				<br/><strong>Αναμενόμενος χρόνος φόρτωσης: 30~50 δευτερόλεπτα.</strong>
+			</p>
+			</div>
+			<div class="dict progress"><div>Φόρτωση…</div></div>
+
 			 <div class="span12">
 				<form>
-					<input id="generate" type="button" class="btn-large btn-primary" value="Generate project name" />
+					<div class="small progress"><div>Φόρτωση…</div></div>
+					<input id="generate" type="button" class="btn-large btn-primary" value="Δημιουργία λέξης" />
 				</form>
 			</div>
 			<div class="span12">
@@ -64,47 +145,61 @@
 			</div>
 		</div>
 
-		<div class="share row">
-			<div class="span12">
-				<iframe src="http://ghbtns.com/github-btn.html?user=mrsharpoblunto&repo=foswig.js&type=watch&count=false"
-			  allowtransparency="true" frameborder="0" scrolling="0" width="55" height="20"></iframe>
-				<iframe src="http://ghbtns.com/github-btn.html?user=mrsharpoblunto&type=follow&count=true"
-			  allowtransparency="true" frameborder="0" scrolling="0" width="175" height="20"></iframe>	
-				<a href="https://twitter.com/mr_sharpoblunto" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @mr_sharpoblunto</a>
-			</div>
-		</div>
 		
 		<div class="copyright row">
-			 <div class="span12">
-				&copy; <a href="http://www.sharpoblunto.com">Glenn Conner</a> 2013.
-			 </div>
+
+				<!-- <p>Με λίγα λόγια: </p>-->
+
+				<p>
+					A project by <a href="https://twitter.com/kostas_mns">KostasX</a> based on the <a href="https://github.com/mrsharpoblunto/foswig.js/">Fowsig Library</a> by <a href="https://twitter.com/mr_sharpoblunto">Glenn Conner</a>
+				</p>
+				<p>
+					More on <a href="http://en.wikipedia.org/wiki/Markov_chain">Markov Chains</a>
+				</p>
+
 		</div>
+
 	</div>
 	
 	<script type="text/javascript" src="jquery-2.0.2.min.js"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+    $(document).ready(function() {
+
 			$("#generate").click(function() {
-				worker.postMessage({messageType:"generate",minLength:5,maxLength:10});
+
+				$(".small.progress").show();
+				worker.postMessage({ 
+					messageType : "generate", 
+					minLength   : 6, 
+					maxLength   : 16 
+				});
 			});
 		
-			var result = $("#result");
+			var result   = $("#result");
 			var progress = $(".bar");
-			
-			var worker = new Worker("markov-builder.js");
-			worker.addEventListener("message",function(evt) {
-				if (evt.data.messageType==="loaded") {
-					$("#loading").hide();
-					$("#input").show();
-				}
-				else if (evt.data.messageType==="generate")
-				{
-					result.html(evt.data.word);
-				}
-			},false);
-			worker.postMessage({messageType:"load"});
+			var worker   = new Worker("markov-builder.js");
+					worker.addEventListener("message",function(evt) {
+
+						if (evt.data.messageType==="loaded") {
+
+								$("#loading").hide();
+								$("#generate").show();
+								$(".dict.progress").hide();
+
+							} else if (evt.data.messageType==="generate") {
+
+								$(".small.progress").hide();
+								result.html(evt.data.word);
+
+							}
+
+			}, false );
+
+			worker.postMessage({ messageType:"load" });
+
 		});
+
     </script>
 	
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
